@@ -1,21 +1,27 @@
 export const weddingConfig = {
   couple: {
-    groomName: 'Huy Siveing',
-    brideName: 'Sea Hutmonineat',
+    brideFirstName: 'Sea',
+    brideLastName: 'Hutmonineat',
+    groomFirstName: 'Huy',
+    groomLastName: 'Siveing',
     coupleTitle: 'Huy Siveing & Sea Hutmonineat',
   },
-  weddingDate: {
-    date: 'December 25, 2024',
+  wedding: {
+    date: new Date('2024-12-25').getTime(),
+    displayDate: 'December 25, 2024',
     time: '6:00 PM',
     dayOfWeek: 'Saturday',
-    countdownTo: new Date('2024-12-25').getTime(),
+    message:
+      'Together with our parents, we joyfully invite you to celebrate the union of our lives as we exchange our vows and begin our journey as husband and wife.',
   },
   venue: {
     name: 'Sovaneth Hall',
     hallName: 'សន្និសីទថ្នល់ (ថ្នល់ B)',
-    address: 'Some Address Here',
+    location: 'Some Address Here',
     description:
       'Please join us as we celebrate the beginning of our new chapter together with family and friends from around the world.',
+    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-QvrvZEPGSK87BiQmgkd3fK8UvKOMSi.png',
+    time: '6:00 PM',
   },
   schedule: [
     {
@@ -29,22 +35,25 @@ export const weddingConfig = {
       description: 'ប៉ុលនឹងផ្អើល',
     },
   ],
-  couple_photos: [
-    {
-      id: 1,
-      src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-zTBqkUf4wMi0cAhicBVCZHULbOeA2y.png',
-      alt: 'Couple in red traditional attire',
-    },
-  ],
-  gallery_photos: [
-    {
-      id: 1,
-      src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-hp5xe38SXpAxo7YT1kdf4NJcDrPtlT.png',
-      alt: 'Wedding photos gallery',
-    },
-  ],
-  invitationMessage:
-    'Together with our parents, we joyfully invite you to celebrate the union of our lives as we exchange our vows and begin our journey as husband and wife.',
+  gallery: {
+    images: [
+      {
+        id: 1,
+        url: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-hp5xe38SXpAxo7YT1kdf4NJcDrPtlT.png',
+        caption: 'Wedding photos gallery',
+      },
+      {
+        id: 2,
+        url: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-2v3FnUcfe9ASCpPhdNulg00Z5Xsyld.png',
+        caption: 'Wedding invitation card',
+      },
+      {
+        id: 3,
+        url: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-FiUkpvJcGvwOfaF9Pc3KwNlt7WJG8C.png',
+        caption: 'Special moment',
+      },
+    ],
+  },
   bankingInfo: {
     brideName: 'Sea Hutmonineat',
     accountNumber: '123456789',

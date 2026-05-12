@@ -8,7 +8,11 @@ interface TimeRemaining {
   seconds: number;
 }
 
-export function CountdownTimer() {
+interface CountdownTimerProps {
+  targetDate?: number;
+}
+
+export function CountdownTimer({ targetDate }: CountdownTimerProps) {
   const [timeRemaining, setTimeRemaining] = useState<TimeRemaining>({
     days: 0,
     hours: 0,
@@ -19,7 +23,7 @@ export function CountdownTimer() {
   useEffect(() => {
     const calculateTimeRemaining = () => {
       const now = new Date().getTime();
-      const weddingTime = weddingConfig.weddingDate.countdownTo;
+      const weddingTime = targetDate || weddingConfig.wedding.date;
       const diff = weddingTime - now;
 
       if (diff > 0) {
