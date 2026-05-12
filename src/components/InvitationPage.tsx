@@ -7,7 +7,52 @@ import '../styles/invitation-page.css';
 export function InvitationPage() {
   const { inviterName } = useParams<{ inviterName: string }>();
   const navigate = useNavigate();
+  const [showWelcome, setShowWelcome] = useState(true);
   const [isRevealed, setIsRevealed] = useState(false);
+
+  const handleContinue = () => {
+    setShowWelcome(false);
+    setIsRevealed(true);
+  };
+
+  // If still showing welcome screen, show personalized greeting
+  if (showWelcome) {
+    return (
+      <div className="welcome-screen">
+        <div className="ornament ornament-top-left"></div>
+        <div className="ornament ornament-top-right"></div>
+
+        <div className="welcome-content">
+          <div className="welcome-decoration">
+            <span className="decoration-icon">💌</span>
+          </div>
+
+          <h1 className="welcome-title">សូមស្វាគមន៍</h1>
+
+          {inviterName && (
+            <p className="welcome-name">
+              {decodeURIComponent(inviterName)}
+            </p>
+          )}
+
+          <p className="welcome-message">
+            យើងរីករាយក្នុងការបង្ហាញលម ឈ្មោះរបស់អ្នក នៅឱកាស ពិសេស នេះ
+          </p>
+
+          <p className="welcome-subtitle">
+            សូមដកល្អលម វិវាហ៍របស់ {weddingConfig.couple.groomFirstName} និង {weddingConfig.couple.brideFirstName}
+          </p>
+
+          <button className="continue-button" onClick={handleContinue}>
+            មើលលម
+          </button>
+        </div>
+
+        <div className="ornament ornament-bottom-left"></div>
+        <div className="ornament ornament-bottom-right"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="invitation-page">

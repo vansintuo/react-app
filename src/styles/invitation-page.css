@@ -1,3 +1,103 @@
+/* ============ WELCOME SCREEN ============ */
+.welcome-screen {
+  min-height: 100vh;
+  width: 100%;
+  background: #faf8f6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 40px 20px;
+  overflow: hidden;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 500px;
+  animation: slideUp 0.6s ease-out;
+}
+
+.welcome-decoration {
+  margin-bottom: 30px;
+}
+
+.decoration-icon {
+  font-size: 80px;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.welcome-title {
+  font-size: 48px;
+  color: #a67c7f;
+  margin-bottom: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.welcome-name {
+  font-size: 36px;
+  color: #5c2e31;
+  font-weight: 600;
+  margin-bottom: 30px;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  border: 2px solid #e8ddd8;
+  box-shadow: 0 5px 20px rgba(166, 124, 127, 0.1);
+}
+
+.welcome-message {
+  font-size: 16px;
+  color: #5c2e31;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.welcome-subtitle {
+  font-size: 14px;
+  color: #a67c7f;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.continue-button {
+  background: linear-gradient(135deg, #a67c7f 0%, #8b6166 100%);
+  color: white;
+  border: none;
+  padding: 16px 48px;
+  font-size: 18px;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(166, 124, 127, 0.2);
+  letter-spacing: 1px;
+}
+
+.continue-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(166, 124, 127, 0.3);
+  background: linear-gradient(135deg, #8b6166 0%, #705257 100%);
+}
+
+.continue-button:active {
+  transform: translateY(-1px);
+}
+
+/* ============ INVITATION PAGE ============ */
 .invitation-page {
   min-height: 100vh;
   width: 100%;
