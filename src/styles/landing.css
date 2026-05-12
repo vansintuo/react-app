@@ -1,0 +1,254 @@
+.landing-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #faf8f6 0%, #f5f1ed 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ornamental Corners */
+.ornament {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.ornament-top-left {
+  top: 0;
+  left: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M10 10 Q30 30, 10 50 Q30 50, 50 30 Q50 50, 30 70 Q50 70, 70 50" fill="none" stroke="%23a67c7f" stroke-width="2"/></svg>') no-repeat;
+}
+
+.ornament-top-right {
+  top: 0;
+  right: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M110 10 Q90 30, 110 50 Q90 50, 70 30 Q70 50, 90 70 Q70 70, 50 50" fill="none" stroke="%23a67c7f" stroke-width="2"/></svg>') no-repeat;
+  transform: scaleX(-1);
+}
+
+.ornament-bottom-left {
+  bottom: 0;
+  left: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M10 110 Q30 90, 10 70 Q30 70, 50 90 Q50 70, 30 50 Q50 50, 70 70" fill="none" stroke="%23a67c7f" stroke-width="2"/></svg>') no-repeat;
+  transform: scaleY(-1);
+}
+
+.ornament-bottom-right {
+  bottom: 0;
+  right: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><path d="M110 110 Q90 90, 110 70 Q90 70, 70 90 Q70 70, 90 50 Q70 50, 50 70" fill="none" stroke="%23a67c7f" stroke-width="2"/></svg>') no-repeat;
+  transform: scale(-1);
+}
+
+/* Hero Section */
+.hero-section {
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 32px;
+  animation: slideDown 0.6s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border: 3px solid #e8ddd8;
+  object-fit: cover;
+  aspect-ratio: 3/4;
+}
+
+/* Invitation Section */
+.invitation-section {
+  width: 100%;
+  max-width: 500px;
+  animation: slideUp 0.6s ease-out 0.2s both;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Invite Button */
+.invite-button {
+  width: 100%;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #a67c7f 0%, #8b6166 100%);
+  color: white;
+  border: none;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  box-shadow: 0 8px 24px rgba(166, 124, 127, 0.3);
+}
+
+.invite-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(166, 124, 127, 0.4);
+  background: linear-gradient(135deg, #8b6166 0%, #7a525a 100%);
+}
+
+.button-arrow {
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.invite-button:active {
+  transform: translateY(0);
+}
+
+/* Name Input Form */
+.name-input-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.input-label {
+  font-size: 14px;
+  color: #5c2e31;
+  font-weight: 600;
+  text-align: center;
+}
+
+.name-input {
+  padding: 14px 16px;
+  border: 2px solid #e8ddd8;
+  border-radius: 12px;
+  font-size: 16px;
+  font-family: inherit;
+  color: #5c2e31;
+  background-color: white;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.name-input:focus {
+  outline: none;
+  border-color: #a67c7f;
+  box-shadow: 0 0 0 3px rgba(166, 124, 127, 0.1);
+}
+
+.name-input::placeholder {
+  color: #c9adb0;
+}
+
+.submit-button {
+  padding: 14px 24px;
+  background: linear-gradient(135deg, #a67c7f 0%, #8b6166 100%);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  box-shadow: 0 8px 24px rgba(166, 124, 127, 0.3);
+}
+
+.submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(166, 124, 127, 0.4);
+  background: linear-gradient(135deg, #8b6166 0%, #7a525a 100%);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .landing-container {
+    padding: 16px;
+  }
+
+  .hero-image {
+    border-radius: 16px;
+  }
+
+  .invite-button {
+    padding: 16px 20px;
+    font-size: 15px;
+  }
+
+  .ornament {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 640px) {
+  .landing-container {
+    padding: 12px;
+    min-height: auto;
+  }
+
+  .hero-section {
+    margin-bottom: 24px;
+  }
+
+  .hero-image {
+    border-radius: 12px;
+    border-width: 2px;
+  }
+
+  .invite-button {
+    padding: 14px 18px;
+    font-size: 14px;
+  }
+
+  .button-arrow {
+    font-size: 16px;
+  }
+
+  .ornament {
+    width: 60px;
+    height: 60px;
+    opacity: 0.15;
+  }
+
+  .name-input-form {
+    gap: 12px;
+  }
+
+  .input-label {
+    font-size: 13px;
+  }
+
+  .name-input,
+  .submit-button {
+    font-size: 14px;
+    padding: 12px 14px;
+  }
+}
