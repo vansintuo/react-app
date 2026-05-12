@@ -1,0 +1,508 @@
+.invitation-page {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #faf8f6 0%, #f5eff0 100%);
+  padding: 20px;
+  overflow: hidden;
+}
+
+/* Close Button */
+.close-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #a67c7f;
+  background-color: #faf8f6;
+  color: #a67c7f;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #a67c7f;
+  color: #faf8f6;
+  transform: scale(1.1);
+}
+
+/* Decorative Ornaments */
+.ornament-page {
+  position: fixed;
+  width: 120px;
+  height: 120px;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ornament-page-top-left {
+  top: 0;
+  left: 0;
+  border-left: 3px solid #a67c7f;
+  border-top: 3px solid #a67c7f;
+  border-radius: 20px 0 0 0;
+}
+
+.ornament-page-top-right {
+  top: 0;
+  right: 0;
+  border-right: 3px solid #a67c7f;
+  border-top: 3px solid #a67c7f;
+  border-radius: 0 20px 0 0;
+}
+
+.ornament-page-bottom-left {
+  bottom: 0;
+  left: 0;
+  border-left: 3px solid #a67c7f;
+  border-bottom: 3px solid #a67c7f;
+  border-radius: 0 0 0 20px;
+}
+
+.ornament-page-bottom-right {
+  bottom: 0;
+  right: 0;
+  border-right: 3px solid #a67c7f;
+  border-bottom: 3px solid #a67c7f;
+  border-radius: 0 0 20px 0;
+}
+
+/* Tab Navigation */
+.tab-navigation {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
+  margin-top: 60px;
+}
+
+.tab-button {
+  padding: 10px 16px;
+  background-color: transparent;
+  border: 2px solid #d4bfc4;
+  color: #5c2e31;
+  border-radius: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.tab-button:hover {
+  border-color: #a67c7f;
+  color: #a67c7f;
+  transform: translateY(-2px);
+}
+
+.tab-button.active {
+  background-color: #a67c7f;
+  color: #faf8f6;
+  border-color: #a67c7f;
+}
+
+/* Tab Content */
+.tab-content {
+  position: relative;
+  z-index: 10;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeIn 0.4s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.tab-pane {
+  padding: 30px 20px;
+  background: white;
+  border-radius: 15px;
+  border: 2px solid #d4bfc4;
+  box-shadow: 0 8px 32px rgba(166, 124, 127, 0.1);
+}
+
+/* Welcome Pane */
+.welcome-pane {
+  text-align: center;
+}
+
+.welcome-header {
+  margin-bottom: 40px;
+}
+
+.couple-names {
+  font-size: 32px;
+  color: #a67c7f;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.invitation-greeting {
+  font-size: 16px;
+  color: #5c2e31;
+  margin: 0;
+}
+
+.countdown-section {
+  margin: 40px 0;
+  padding: 30px;
+  background: linear-gradient(135deg, #faf8f6 0%, #f5eff0 100%);
+  border-radius: 12px;
+}
+
+.calendar-icon {
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+.countdown-title {
+  font-size: 18px;
+  color: #a67c7f;
+  margin-bottom: 20px;
+}
+
+.guest-info {
+  margin-top: 30px;
+  padding: 20px;
+  background-color: #f5eff0;
+  border-radius: 10px;
+  border-left: 4px solid #a67c7f;
+}
+
+.guest-greeting {
+  font-size: 16px;
+  color: #5c2e31;
+  margin: 0;
+}
+
+.guest-name {
+  font-weight: 700;
+  color: #a67c7f;
+}
+
+/* Details Pane */
+.details-pane {
+  text-align: center;
+}
+
+.section-title {
+  font-size: 24px;
+  color: #a67c7f;
+  margin-bottom: 30px;
+  font-weight: 700;
+}
+
+.couple-details {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.person-detail {
+  flex: 1;
+  min-width: 150px;
+  padding: 20px;
+  background-color: #f5eff0;
+  border-radius: 10px;
+}
+
+.role-title {
+  font-size: 14px;
+  color: #a67c7f;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.person-name {
+  font-size: 18px;
+  color: #5c2e31;
+  margin: 0;
+  font-weight: 700;
+}
+
+.invitation-message {
+  background-color: #f5eff0;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 30px 0;
+  line-height: 1.6;
+  color: #5c2e31;
+}
+
+.rsvp-button {
+  padding: 15px 30px;
+  background-color: #a67c7f;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.rsvp-button:hover {
+  background-color: #8b6166;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(166, 124, 127, 0.3);
+}
+
+/* Gallery Pane */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.gallery-item {
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(166, 124, 127, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.05);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Venue Pane */
+.venue-card {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.venue-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(166, 124, 127, 0.15);
+}
+
+.venue-details {
+  text-align: center;
+}
+
+.venue-name {
+  font-size: 22px;
+  color: #a67c7f;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.venue-description {
+  font-size: 14px;
+  color: #5c2e31;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.venue-info-item {
+  text-align: left;
+  background-color: #f5eff0;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  border-left: 4px solid #a67c7f;
+}
+
+.info-label {
+  display: block;
+  font-weight: 600;
+  color: #a67c7f;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.info-value {
+  margin: 0;
+  color: #5c2e31;
+  font-size: 14px;
+}
+
+.map-button {
+  padding: 12px 24px;
+  background-color: transparent;
+  border: 2px solid #a67c7f;
+  color: #a67c7f;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 15px;
+}
+
+.map-button:hover {
+  background-color: #a67c7f;
+  color: white;
+}
+
+/* Message Pane */
+.special-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.message-box {
+  background-color: #f5eff0;
+  padding: 20px;
+  border-radius: 10px;
+  border-left: 4px solid #a67c7f;
+}
+
+.message-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #a67c7f;
+  margin-bottom: 10px;
+}
+
+.message-text {
+  font-size: 14px;
+  color: #5c2e31;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.personalized-message {
+  background: linear-gradient(135deg, #a67c7f 0%, #8b6166 100%);
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.custom-message {
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.qr-button {
+  padding: 15px 24px;
+  background-color: #a67c7f;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.qr-button:hover {
+  background-color: #8b6166;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .tab-button {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+  .tab-pane {
+    padding: 20px 15px;
+  }
+
+  .couple-names {
+    font-size: 24px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .couple-details {
+    flex-direction: column;
+  }
+
+  .venue-image {
+    height: 250px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .ornament-page {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .invitation-page {
+    padding: 15px;
+  }
+
+  .close-button {
+    width: 36px;
+    height: 36px;
+    font-size: 20px;
+  }
+
+  .tab-navigation {
+    margin-top: 50px;
+    gap: 6px;
+  }
+
+  .tab-button {
+    padding: 6px 10px;
+    font-size: 11px;
+  }
+
+  .couple-names {
+    font-size: 20px;
+  }
+
+  .countdown-title {
+    font-size: 16px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+}
