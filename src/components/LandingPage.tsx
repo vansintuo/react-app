@@ -24,17 +24,19 @@ export function LandingPage() {
       <div className="ornament ornament-top-left"></div>
       <div className="ornament ornament-top-right"></div>
 
-      {/* Hero Image */}
-      <div className="hero-section">
-        <img
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-zTBqkUf4wMi0cAhicBVCZHULbOeA2y.png"
-          alt={`${weddingConfig.couple.coupleTitle} Wedding`}
-          className="hero-image"
-        />
-      </div>
+      {/* Hero Image - Hidden when showing name input */}
+      {!showNameInput && (
+        <div className="hero-section">
+          <img
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-zTBqkUf4wMi0cAhicBVCZHULbOeA2y.png"
+            alt={`${weddingConfig.couple.coupleTitle} Wedding`}
+            className="hero-image"
+          />
+        </div>
+      )}
 
       {/* Invitation Section */}
-      <div className="invitation-section">
+      <div className={`invitation-section ${showNameInput ? 'form-fullscreen' : ''}`}>
         {!showNameInput ? (
           <button className="invite-button" onClick={handleInviteClick}>
             វិវាហ៍របស់ {weddingConfig.couple.coupleTitle}
