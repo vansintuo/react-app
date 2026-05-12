@@ -7,194 +7,157 @@ import '../styles/invitation-page.css';
 export function InvitationPage() {
   const { inviterName } = useParams<{ inviterName: string }>();
   const navigate = useNavigate();
-  const [activeTab, setActiveTab] = useState('welcome');
-
-  const handleBack = () => {
-    navigate('/');
-  };
-
-  const tabs = [
-    { id: 'welcome', label: 'វិវាហ៍' },
-    { id: 'details', label: 'សម្រាប់' },
-    { id: 'gallery', label: 'ឧបករណ៍' },
-    { id: 'venue', label: 'ទីតាំង' },
-    { id: 'message', label: 'សារ' },
-  ];
+  const [isRevealed, setIsRevealed] = useState(false);
 
   return (
     <div className="invitation-page">
-      {/* Close Button */}
-      <button className="close-button" onClick={handleBack} aria-label="Close invitation">
-        ✕
-      </button>
+      {/* Hero Section - Cover */}
+      <section className={`hero-section ${isRevealed ? 'revealed' : ''}`}>
+        <div className="ornament ornament-top-left"></div>
+        <div className="ornament ornament-top-right"></div>
 
-      {/* Decorative Elements */}
-      <div className="ornament-page ornament-page-top-left"></div>
-      <div className="ornament-page ornament-page-top-right"></div>
+        <div className="hero-content">
+          {/* Background Image */}
+          <div className="hero-image-container">
+            <img
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-zTBqkUf4wMi0cAhicBVCZHULbOeA2y.png"
+              alt="Wedding couple"
+              className="hero-image"
+            />
+          </div>
 
-      {/* Tab Navigation */}
-      <div className="tab-navigation">
-        {tabs.map((tab) => (
-          <button
-            key={tab.id}
-            className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
-            onClick={() => setActiveTab(tab.id)}
-          >
-            {tab.label}
-          </button>
-        ))}
-      </div>
+          {/* Text Overlay */}
+          <div className="hero-text-overlay">
+            <h1 className="couple-title">អាវាហវិវាហមង្គល</h1>
+            <p className="invitation-subtitle">សូមគោរពអញ្ជើញ</p>
 
-      {/* Tab Content */}
-      <div className="tab-content">
-        {/* Welcome Tab */}
-        {activeTab === 'welcome' && (
-          <div className="tab-pane welcome-pane">
-            <div className="welcome-header">
-              <h1 className="couple-names">
-                {weddingConfig.couple.brideFirstName} & {weddingConfig.couple.groomFirstName}
-              </h1>
-              <p className="invitation-greeting">
-                សូមស្វាគមន៍ចូលទៅក្នុងឆ្នាំយើងសារឋាន!
-              </p>
+            <div className="couple-name-box">
+              <h2 className="couple-name">
+                {weddingConfig.couple.groomFirstName} {weddingConfig.couple.groomLastName} &amp;
+                <br />
+                {weddingConfig.couple.brideFirstName} {weddingConfig.couple.brideLastName}
+              </h2>
+            </div>
+
+            {/* Action Button */}
+            {!isRevealed ? (
+              <button
+                className="reveal-button"
+                onClick={() => setIsRevealed(true)}
+              >
+                បើក
+              </button>
+            ) : (
+              <button
+                className="close-button"
+                onClick={() => navigate('/')}
+              >
+                ← ត្រឡប់ក្រោយ
+              </button>
+            )}
+          </div>
+        </div>
+
+        <div className="ornament ornament-bottom-left"></div>
+        <div className="ornament ornament-bottom-right"></div>
+      </section>
+
+      {/* Full Content - Revealed */}
+      {isRevealed && (
+        <div className="content-wrapper">
+          {/* Invitation Message */}
+          <section className="content-section message-section">
+            <h2 className="section-title">ការអាពាហ៍ពិពាហ៍</h2>
+            <p className="section-text">
+              {weddingConfig.wedding.message}
+            </p>
+          </section>
+
+          {/* Date & Time */}
+          <section className="content-section date-section">
+            <div className="date-container">
+              <h3 className="date-label">ថ្ងៃ ម៉ោង</h3>
+              <p className="date-value">{weddingConfig.wedding.displayDate}</p>
+              <p className="time-value">{weddingConfig.wedding.time}</p>
             </div>
 
             {/* Countdown Timer */}
-            <div className="countdown-section">
-              <div className="calendar-icon">📅</div>
-              <h2 className="countdown-title">ដណ្ដើមរយៈពេល</h2>
+            <div className="countdown-wrapper">
+              <h3 className="countdown-label">សរុបរយៈពេល</h3>
               <CountdownTimer targetDate={weddingConfig.wedding.date} />
             </div>
+          </section>
 
-            {/* Guest Info */}
-            {inviterName && (
-              <div className="guest-info">
-                <p className="guest-greeting">
-                  សូមស្វាគមន៍ <span className="guest-name">{decodeURIComponent(inviterName)}</span>!
-                </p>
-              </div>
-            )}
-          </div>
-        )}
-
-        {/* Details Tab */}
-        {activeTab === 'details' && (
-          <div className="tab-pane details-pane">
-            <div className="details-container">
-              <h2 className="section-title">អញ្ជើញរួមរីក ស្វាគមន៍</h2>
-
-              <div className="couple-details">
-                <div className="person-detail">
-                  <h3 className="role-title">ពពzeich</h3>
-                  <p className="person-name">
-                    {weddingConfig.couple.brideFirstName} {weddingConfig.couple.brideLastName}
-                  </p>
-                </div>
-
-                <div className="person-detail">
-                  <h3 className="role-title">ពពzeich</h3>
-                  <p className="person-name">
-                    {weddingConfig.couple.groomFirstName} {weddingConfig.couple.groomLastName}
-                  </p>
-                </div>
-              </div>
-
-              <div className="invitation-message">
-                <p>{weddingConfig.wedding.message}</p>
-              </div>
-
-              <button className="rsvp-button">
-                <span className="calendar-icon">📅</span>
-                រក្សាទុកកាលបរិច្ឆេទ
-              </button>
+          {/* Venue */}
+          <section className="content-section venue-section">
+            <h2 className="section-title">ទីកន្លែង</h2>
+            <div className="venue-image-container">
+              <img
+                src={weddingConfig.venue.image}
+                alt={weddingConfig.venue.name}
+              />
             </div>
-          </div>
-        )}
+            <div className="venue-details">
+              <h3 className="venue-name">{weddingConfig.venue.name}</h3>
+              <p className="venue-hall">{weddingConfig.venue.hallName}</p>
+              <p className="venue-description">{weddingConfig.venue.description}</p>
+              <p className="venue-location">📍 {weddingConfig.venue.location}</p>
+            </div>
+          </section>
 
-        {/* Gallery Tab */}
-        {activeTab === 'gallery' && (
-          <div className="tab-pane gallery-pane">
-            <h2 className="section-title">ឧបករណ៍របស់យើងសាលា</h2>
+          {/* Gallery */}
+          <section className="content-section gallery-section">
+            <h2 className="section-title">រូបថត</h2>
             <div className="gallery-grid">
-              {weddingConfig.gallery.images.map((image, index) => (
-                <div key={index} className="gallery-item">
+              {weddingConfig.gallery.images.map((image) => (
+                <div key={image.id} className="gallery-item">
                   <img src={image.url} alt={image.caption} />
                 </div>
               ))}
             </div>
-          </div>
-        )}
+          </section>
 
-        {/* Venue Tab */}
-        {activeTab === 'venue' && (
-          <div className="tab-pane venue-pane">
-            <h2 className="section-title">ទីតាំងរួមផ្សំ</h2>
-
-            <div className="venue-card">
-              <img src={weddingConfig.venue.image} alt={weddingConfig.venue.name} className="venue-image" />
-
-              <div className="venue-details">
-                <h3 className="venue-name">{weddingConfig.venue.name}</h3>
-                <p className="venue-description">{weddingConfig.venue.description}</p>
-
-                <div className="venue-info-item">
-                  <span className="info-label">📍ទីតាំង:</span>
-                  <p className="info-value">{weddingConfig.venue.location}</p>
+          {/* Schedule */}
+          <section className="content-section schedule-section">
+            <h2 className="section-title">កាលវិភាគកម្មវិធី</h2>
+            <div className="schedule-timeline">
+              {weddingConfig.schedule.map((item, index) => (
+                <div key={index} className="schedule-item">
+                  <div className="schedule-time">{item.time}</div>
+                  <div className="schedule-content">
+                    <h4>{item.title}</h4>
+                    <p>{item.description}</p>
+                  </div>
                 </div>
-
-                <div className="venue-info-item">
-                  <span className="info-label">⏰ពេលវេលា:</span>
-                  <p className="info-value">{weddingConfig.venue.time}</p>
-                </div>
-
-                <button className="map-button">មើលផែនទី</button>
-              </div>
+              ))}
             </div>
-          </div>
-        )}
+          </section>
 
-        {/* Message Tab */}
-        {activeTab === 'message' && (
-          <div className="tab-pane message-pane">
-            <h2 className="section-title">សារពិសេស</h2>
-
-            <div className="special-messages">
-              <div className="message-box">
-                <p className="message-title">សូមស្វាគមន៍សូមបង្ហាញលម</p>
-                <p className="message-text">
-                  យើងរីករាយក្នុងការបង្ហាញលម ឈ្មោះរបស់អ្នក នៅឱកាស
-                  ពិសេស នេះ និងប្រាថ្នាឱ្យលទ្ធិលាភ ល្អប្រសើរបំផុត ចំពោះរូប គូ។
-                </p>
-              </div>
-
-              {inviterName && (
-                <div className="personalized-message">
-                  <p className="custom-message">
-                    {decodeURIComponent(inviterName)}, ស្វាគមន៍ចូលទៅក្នុងឆ្នាំយើងសារឋាន!
-                  </p>
-                </div>
-              )}
-
-              <div className="message-box">
-                <p className="message-title">ការបង្ហាញលម</p>
-                <p className="message-text">
-                  ព្យាបាលដល់ការដឹងលឹង ឬលើកស្មារតីនៃការបង្ហាញលម របស់អ្នក
-                  នឹងត្រូវដោះដូល ក្រោយលើកលម។
-                </p>
-              </div>
-
-              <button className="qr-button">
-                <span>📱</span>
-                ស្កេនលេខសម្រាប់ការបង្ហាញលម
-              </button>
+          {/* Banking Info */}
+          <section className="content-section banking-section">
+            <h2 className="section-title">ព័ត៌មានលម</h2>
+            <div className="banking-card">
+              <p><span className="label">ឈ្មោះ:</span> {weddingConfig.bankingInfo.brideName}</p>
+              <p><span className="label">ឯកសារលម:</span> {weddingConfig.bankingInfo.accountNumber}</p>
+              <p><span className="label">ធនាគារ:</span> {weddingConfig.bankingInfo.bankName}</p>
             </div>
-          </div>
-        )}
-      </div>
+          </section>
 
-      {/* Decorative Elements */}
-      <div className="ornament-page ornament-page-bottom-left"></div>
-      <div className="ornament-page ornament-page-bottom-right"></div>
+          {/* Personalized Message */}
+          {inviterName && (
+            <section className="content-section personal-message-section">
+              <p className="personal-greeting">
+                សូមគោរពអញ្ជើញលោក/នាង <span className="guest-name">{decodeURIComponent(inviterName)}</span>
+              </p>
+            </section>
+          )}
+
+          {/* Closing */}
+          <section className="content-section closing-section">
+            <p className="closing-text">សូមស្វាគមន៍ក្នុងពិធីបុណ្យយើងខ្ញុំ</p>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
